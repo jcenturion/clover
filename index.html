@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clover</title>
+  <link rel="stylesheet" type="text/css" href="assets/styles/clover.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/metro-icons.css">
+</head>
+<body>
+
+<!-- <ul class="clover-file-explorer">
+  <li>Project Explorer</li>
+</ul> -->
+
+<div style="background: rgb(87, 88, 90);">
+  <h1 style="color: white; font-family: Helvetica; padding: 3px; margin: 0; box-sizing: border-box; font-size: 24px; font-weight: lighter; text-shadow: rgb(34, 34, 34) -1px 0px 4px; color: white; letter-spacing: 1px;">
+    Clover
+  </h1>
+</div>
+
+<div class="clover">
+
+<!--   <div class="clover-menu-bar">
+    <span class="clover-icon-medium mif-home"></span>
+    <span class="clover-icon-medium mif-key"></span>
+  </div>
+ -->
+  <div class="clover-left-bar">
+    <div class="clover-title"><span class="clover-arrow-right">&#9658</span> Working Files <span class="clover-close-button">&#x2715;</span></div>
+    <div class="clover-title"><span class="clover-arrow-right">
+      &#9660</span> Project Explorer
+      <div class="clover-right">
+        <span class="clover-icon-small mif-file-text"></span>
+        <span class="clover-icon-small mif-folder-plus"></span>
+      </div>
+    </div>
+    <div class="clover-menu-content">
+      <div class="clover-search-bar">
+        <div class="clover-toolbar">
+          <span class="clover-icon-small mif-search"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clover-editor">
+    <div class="clover-title" style="margin-right: -2px;">simple.raml <span class="clover-close-button">&#x2715;</span></div>
+    <div class="clover-container">
+      <div class="clover-code">
+        <pre id="editor"></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="clover-right-bar">
+    <div>
+      <div class="clover-title">Try-It <span class="clover-close-button">&#x2715;</span></div>
+      <div class="clover-container" style="height: 100%; padding: 2px;">
+        <div class="group">
+          <div style="padding: 3px; background-color: #35393c; font-size: 9px;">
+            <span style="text-transform: uppercase; color: silver;"><span class="clover-arrow-right">&#9660</span> Resources</span>
+          </div>
+          <div class="content" style="margin-top: 5px; margin-bottom: 5px;   padding-left: 3px; padding-right: 3px;">
+            <select style="border: 0; border-radius: 0; font-size: 9px; width: 100%;">
+              <option>/resource/{resourceId}:</option>
+              <option>/resource</option>
+              <option>/another/resource:</option>
+              <option>/resource-with-headers</option>
+              <option>/secured-resource</option>
+              <option>/resource-with-method-level-traits</option>
+              <option>/resource-with-form-and-multipart-form-parameters</option>
+              <option>/resource-with-repeatable-params</option>
+            </select>
+          </div>
+        </div>
+
+        <form style="font-size: 9px;">
+          <div class="group">
+            <div style="padding: 3px; background-color: #35393c; font-size: 9px;">
+              <span style="text-transform: uppercase; color: silver;"><span class="clover-arrow-right">&#9660</span> Protocols</span>
+            </div>
+            <div class="content" style="margin-top: 5px; margin-bottom: 5px;   padding-left: 3px; padding-right: 3px;">
+              <select style="border: 0; border-radius: 0; font-size: 9px; width: 100%;">
+                <option value="http">HTTP</option>
+                <option value="https">HTTPS</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="group">
+            <div style="padding: 3px; background-color: #35393c; font-size: 9px;">
+              <span style="text-transform: uppercase; color: silver;"><span class="clover-arrow-right">&#9660</span> Authentication</span>
+            </div>
+            <div class="content" style="margin-top: 5px; margin-bottom: 5px;   padding-left: 3px; padding-right: 3px;">
+              <label class="clover-label">Security Scheme</label>
+              <select class="clover-form-control">
+                <option value="oauth_2_0">OAuth 2.0</option>
+                <option value="null">Anonymous</option>
+              </select>
+
+              <label class="clover-label">Authorization Grant</label>
+              <select class="clover-form-control">
+                <option value="code">Authorization Code</option>
+                <option value="credentials">Client Credentials</option>
+              </select>
+
+              <label class="clover-label">Client ID</label>
+              <input class="clover-form-control" type="text" id="clientId" value="" />
+
+              <label class="clover-label">Client Secret</label>
+              <input class="clover-form-control" type="text" id="clientSecret" value="" />
+            </div>
+          </div>
+
+          <div class="group">
+            <button style="  border: 0; background-color: rgb(11, 136, 185); font-size: 10px; color: white;">GET</button>
+            <button style="  border: 0; background-color: rgb(30, 161, 141); font-size: 10px; color: white;">POST</button>
+          </div>
+
+          <div style="border: 1px solid rgb(11, 136, 185); border-top-width: 3px; padding: 3px;">
+            <div class="group">
+              <div style="padding: 3px; background-color: #35393c; font-size: 9px;">
+                <span style="text-transform: uppercase; color: silver;">
+                  <span class="clover-arrow-right">&#9660</span>
+                  Uri Parameters
+                  <span class="clover-icon-small mif-plus" style="float: right; font-size: 9px; margin-top: 1px;"></span>
+                </span>
+              </div>
+
+              <div class="content" style="margin-top: 5px; margin-bottom: 5px;   padding-left: 3px; padding-right: 3px;">
+                <label class="clover-label">teamId</label>
+                <input class="clover-form-control" type="text" id="clientId" value="" />
+              </div>
+            </div>
+
+            <div class="group">
+              <div style="padding: 3px; background-color: #35393c; font-size: 9px;">
+                <span style="text-transform: uppercase; color: silver;">
+                  <span class="clover-arrow-right">&#9658</span>
+                  Headers
+                  <span class="clover-icon-small mif-plus" style="float: right; font-size: 9px; margin-top: 1px;"></span>
+                </span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div style="padding: 3px; background-color: #35393c; font-size: 9px;">
+                <span style="text-transform: uppercase; color: silver;">
+                  <span class="clover-arrow-right">&#9658</span>
+                  Query Parameters
+                  <span class="clover-icon-small mif-plus" style="float: right; font-size: 9px; margin-top: 1px;"></span>
+                </span>
+              </div>
+            </div>
+
+            <div class="group" style="background-color: rgb(11, 136, 185); margin: -3px; margin-top: 3px; padding: 2px; padding-bottom: 1px;">
+              <button>Try-It</button>
+              <button>Clear</button>
+              <button>Reset</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div>
+      <div class="clover-title">Snippets <span class="clover-close-button">&#x2715;</span></div>
+      <div class="clover-container" style="height: 100%; padding: 2px;">
+        <div style="padding: 3px; background-color: #35393c; font-size: 9px;">
+          <span style="text-transform: uppercase; color: silver;">
+            <span class="clover-arrow-right">&#9660</span>
+            Security
+          </span>
+        </div>
+        <div style="color: silver; border-bottom: 1px solid #41464a; padding: 2px; margin-top: 0px; padding-left: 5px;">
+          OAuth 1.0
+        </div>
+        <div style="color: silver; border-bottom: 1px solid #41464a; padding: 2px; margin-top: 0px; padding-left: 5px;">
+          OAuth 2.0
+        </div>
+
+        <div style="padding: 3px; background-color: #35393c; font-size: 9px;">
+          <span style="text-transform: uppercase; color: silver;">
+            <span class="clover-arrow-right">&#9660</span>
+            Traits
+          </span>
+        </div>
+        <div style="color: silver; border-bottom: 1px solid #41464a; padding: 2px; margin-top: 0px; padding-left: 5px;">
+          Searchable
+        </div>
+        <div style="color: silver; border-bottom: 1px solid #41464a; padding: 2px; margin-top: 0px; padding-left: 5px;">
+          Paginable
+        </div>
+      </div>
+    </div>
+    <!-- <div class="clover-title"><span class="clover-arrow-right">&#9658</span> Visual Tree <span class="clover-close-button">&#x2715;</span></div> -->
+    <!-- <div class="clover-title"><span class="clover-arrow-right">&#9658</span> Api Explorer <span class="clover-close-button">&#x2715;</span></div> -->
+    <!-- <div class="clover-title"><span class="clover-arrow-right">&#9658;</span> Error List <span class="clover-close-button">&#x2715;</span></div> -->
+  </div>
+</div>
+
+<div class="clover-status-bar">
+  <span>RAML</span>
+  <span>Line 61, Column 25</span>
+</div>
+
+<!-- split view: design [documentation], RAML -->
+<!-- bottom bar: api explorer -->
+<!-- right bar : try-it, visual tree, snippets -->
+
+<script src="assets/sample.js"></script>
+
+<script src="bower_components/ace-min-noconflict/ace.js"></script>
+<script src="bower_components/ace-min-noconflict/ext-language_tools.js"></script>
+<script>
+    ace.require("ace/ext/language_tools");
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/yaml");
+    editor.setTheme("ace/theme/tomorrow_night");
+    editor.session.setTabSize(2);
+    editor.setOptions({
+      // fontFamily: 'Courier New',
+      // fontSize: '12px',
+      enableBasicAutocompletion: true,
+      enableSnippets: true,
+      enableLiveAutocompletion: false
+    });
+    editor.setValue(sample, -1);
+</script>
+</body>
+</html>

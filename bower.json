@@ -1,0 +1,12 @@
+{
+  "name": "clover",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jcenturion/clover",
+  "authors": [
+    "jcenturion <centurion.javier@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "ace-min-noconflict": "~1.1.9"
+  }
+}
